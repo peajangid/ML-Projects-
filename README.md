@@ -1,2 +1,6 @@
 # ML-Projects-
 This Repository contains the projects which are made using ML algorithms such as  Logistic regression, Linear Regression, Neural Network, etc
+# Ad Click Prediction Using Logistic Regression
+This project aims to build a predictive model using Logistic Regression to determine whether a user will click on an advertisement based on their features. The dataset used in this project is a simulated dataset representing users' behaviors on a company's website.
+## Conclusion: 
+The Logistic Regression model developed for predicting user ad clicks performed exceptionally well on the test data. The model achieved an accuracy of 96.67%, indicating that it correctly classified the majority of instances. The precision of 96.05% shows that the model is highly reliable in predicting actual clicks among those it flagged as likely to click. With a recall of 97.33%, the model successfully identified most of the true positives. The high AUC score of 0.9912 further confirms the model's robustness in distinguishing between users who are likely to click on an ad and those who are not. Overall, the model provides a reliable tool for predicting user engagement with advertisements based on their online behavior and demographic features."
