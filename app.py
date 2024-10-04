@@ -1,47 +1,59 @@
 import streamlit as st
-import pandas as pd
-import requests
-
-from streamlit import selectbox
 import pickle
+tfidf = pickle.load(open('vectorizer.pkl','rb'))
+model = pickle.load(open('model.pkl','rb'))
 
 
 
-
-
-def recommend(movie):
-    movie_index = movies[movies['title'] == movie].index[0]
-    distances = similarity[movie_index]
-    movies_list = sorted(list(enumerate(distances)),reverse=True,key = lambda x: x[1])[1:6]
-    recommended_movies=[]
-
-
-    # fetch poster from api
-    for i in movies_list:
-        movie_id = i[0]
-        recommended_movies.append(movies.iloc[i[0]].title)
-
-    return recommended_movies
-
-
-movies_dict = pickle.load(open('movies_dict.pkl','rb'))
-movies = pd.DataFrame(movies_dict)
-
-similarity = pickle.load(open('similarity.pkl','rb'))
-st.title('Movie Recommender System')
-
-selected_movie_name = st.selectbox('select the movie you are interested in !',
-                   movies['title'].values)
-if st.button('Recommend'):
-    recomendations = recommend(selected_movie_name)
-
-    for  i in recomendations:
-          st.write(i)
+st.title('SMS Spam Classifier')
+input_sms = st.text_input('Enter a message')
 
 
 
+import nltk
+nltk.download('punkt')
+from nltk.corpus import stopwords
+import string
+from nltk.stem.porter import PorterStemmer
+
+ps = PorterStemmer()
 
 
+def transform_text(text):
+    # converting into lower case
+    text = text.lower()
+    text = nltk.word_tokenize(text)
+
+    # removing non-alphanumeric characters
+    y = []
+    for i in text:
+        if i.isalnum():
+            y.append(i)
+
+    # removing stopwords and punctuation
+    cleaned_text = []
+    for i in y:
+        if i not in stopwords.words('english') and i not in string.punctuation:
+            cleaned_text.append(i)
+
+    root_words = []
+    for i in cleaned_text:
+        root_words.append(ps.stem(i))
+
+    return " ".join(root_words)
+
+#step 1. preprocess
+transformed_sms = transform_text(input_sms)
+
+#step2. vectorize
+vector_input = tfidf.transform([transformed_sms])
+
+#step3. predict
+result = model.predict(vector_input)[0]
 
 
-
+#step4. Display
+if result ==1:
+    st.header('Spam')
+else:
+    st.header('Not spam')
