@@ -10,7 +10,19 @@ In this project i created a recomder system for the movies data set that contain
 ## Conclusion
   In this project I developed a recommendation system using cosine similarity to provide personalized suggestions based on item features. Also attempted to process and analyz data to compute similarity scores between items for accurate content recommendations. Implemented the system using Python and libraries like Pandas and NumPy, enhancing user experience through tailored recommendations.Also used pycharm for creating an application using streamlit to run the model on browser.
 
+
+
 # 3. SMS spam/ham classifier
 In this project i used NLP to process the data and then used ML to model the data for the classification process.
 ## Conclusion
 I used NLP to preprocess the data to use the data for the classifiaction using the nNaive bayes. The Binomial Naive bayes gives the best accuracy and precision. I also used different model using different algorithms to analyse and compare the performance matrices with the different model out of which Deep Tress gave better accuracy and precision similar to Naive Bayes. Then Procedded to create an application to classify the message into spam or ham using pycharm and streamlit.
+
+# ML predictive model on Real estate sales prediction  
+Used a dirty data realed to real estate sales and built a ML pipeline in order to Build the predictive model 
+## Conclusion
+Build a Machine Lernaing Pipeline for 
+1. Data Analysis 
+2. Feature Engineering
+3. Feature selection
+4. Model Building
+Achieved a Model with a high r2 score and an mse of 0.0179 which is good if for the sales. Used lasso for feature selection.
