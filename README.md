@@ -26,3 +26,12 @@ Build a Machine Lernaing Pipeline for
 3. Feature selection
 4. Model Building
 Achieved a Model with a high r2 score and an mse of 0.0179 which is good if for the sales. Used lasso for feature selection.
+
+# Understanding Customers using k-means
+This Online Retail II data set contains all the transactions occurring for a UK-based and registered, non-store online retail between 01/12/2009 and 09/12/2011.The company mainly sells unique all-occasion gift-ware. Many customers of the company are wholesalers.
+## Conclusion:
+Created an end to end clustring model 
+1. Data Accessing
+2. Data cleaning
+3. Data preprocessing
+4. K-means clustring
